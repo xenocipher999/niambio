@@ -1,0 +1,23 @@
+# SPA + API config for Apache / LiteSpeed (Hostinger, XAMPP, etc.).
+
+# Never expose env or generated config files.
+<FilesMatch "(^\.env|\.env$|^config\.php$)">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Contact form -> PHP handler (keeps the frontend's /api/contact URL).
+  RewriteRule ^api/contact/?$ api/contact.php [L]
+
+  # Serve real files/dirs as-is.
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Everything else -> SPA entry point (client-side routing).
+  RewriteRule . /index.html [L]
+</IfModule>

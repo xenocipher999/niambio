@@ -1,0 +1,25 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="200" cy="200" r="190" fill="#F9FBFC"/>
+  <circle cx="200" cy="200" r="185" stroke="#00C2A8" stroke-width="4"/>
+  
+  <!-- Microphone Icon (Top Center) -->
+  <g transform="translate(185, 60) scale(1.8)">
+    <rect x="3" y="0" width="10" height="18" rx="5" fill="#00C2A8"/>
+    <path d="M0 8C0 13 4 17 8 17C12 17 16 13 16 8" stroke="#00C2A8" stroke-width="2" fill="none"/>
+    <rect x="7" y="17" width="2" height="6" fill="#00C2A8"/>
+    <rect x="4" y="23" width="8" height="2" fill="#00C2A8"/>
+  </g>
+
+  <!-- Pulse Waveform (Center) -->
+  <path d="M60 200H130L150 140L180 260L210 180L230 220H260" stroke="#00C2A8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M260 220L280 140L310 260L330 200H350" stroke="#FF0000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Branding Text -->
+  <text x="200" y="325" text-anchor="middle" fill="#001F3F" font-family="Arial, sans-serif" font-weight="900" font-size="28" letter-spacing="1">NIAMBIO</text>
+  <text x="200" y="355" text-anchor="middle" fill="#00C2A8" font-family="Arial, sans-serif" font-weight="700" font-size="14" letter-spacing="3">THE PRECISION PULSE</text>
+  
+  <!-- Decorative Nodes -->
+  <circle cx="150" cy="245" r="4" fill="#FF0000"/>
+  <circle cx="250" cy="175" r="4" fill="#FF0000"/>
+</svg>
