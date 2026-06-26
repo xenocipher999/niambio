@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { Mail, Clock, MapPin, Send, Paperclip } from 'lucide-react'
 
 const contactInfo = [
-    { icon: Mail, label: 'Email', value: 'info@niambio.com' },
+    { icon: Mail, label: 'Email', value: 'akjain@niambio.com', href: 'https://mail.google.com/mail/?view=cm&fs=1&to=akjain@niambio.com' },
     { icon: Clock, label: 'Office Hours', value: '9:00 AM – 5:00 PM (Mon–Fri)' },
     { icon: MapPin, label: 'Location', value: 'United States' },
 ]
@@ -78,14 +78,24 @@ export default function Contact() {
                                 </p>
 
                                 <div className="space-y-7">
-                                    {contactInfo.map(({ icon: Icon, label, value }) => (
+                                    {contactInfo.map(({ icon: Icon, label, value, href }) => (
                                         <div key={label} className="flex items-start gap-4">
-                                            <div className="w-10 h-10 rounded-xl glassmorphism flex items-center justify-center shrink-0">
-                                                <Icon size={18} color="#00C2A8" />
-                                            </div>
+                                            {href ? (
+                                                <a href={href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl glassmorphism flex items-center justify-center shrink-0 hover:bg-white/10 transition-colors" aria-label={`${label}: ${value}`}>
+                                                    <Icon size={18} color="#00C2A8" />
+                                                </a>
+                                            ) : (
+                                                <div className="w-10 h-10 rounded-xl glassmorphism flex items-center justify-center shrink-0">
+                                                    <Icon size={18} color="#00C2A8" />
+                                                </div>
+                                            )}
                                             <div>
                                                 <div className="text-white/50 text-xs mb-0.5">{label}</div>
-                                                <div className="text-white font-medium">{value}</div>
+                                                {href ? (
+                                                    <a href={href} target="_blank" rel="noopener noreferrer" className="text-white font-medium hover:text-teal transition-colors">{value}</a>
+                                                ) : (
+                                                    <div className="text-white font-medium">{value}</div>
+                                                )}
                                             </div>
                                         </div>
                                     ))}

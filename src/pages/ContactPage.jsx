@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { Mail, Clock, MapPin, Send, Paperclip, Calendar } from 'lucide-react'
 
 const contactInfo = [
-    { icon: Mail, label: 'Email', value: 'info@niambio.com' },
+    { icon: Mail, label: 'Email', value: 'akjain@niambio.com', href: 'https://mail.google.com/mail/?view=cm&fs=1&to=akjain@niambio.com' },
     { icon: Clock, label: 'Office Hours', value: '9:00 AM – 5:00 PM (Mon–Fri)' },
     { icon: MapPin, label: 'Location', value: 'United States' },
 ]
@@ -72,14 +72,24 @@ export default function ContactPage() {
                                 <h3 className="text-2xl font-bold font-heading text-gray-900 mb-2">Contact Information</h3>
                                 <p className="text-gray-500 mb-10 text-sm">Fill in the form and our team will be in touch within 24 hours.</p>
                                 <div className="space-y-7">
-                                    {contactInfo.map(({ icon: Icon, label, value }) => (
+                                    {contactInfo.map(({ icon: Icon, label, value, href }) => (
                                         <div key={label} className="flex items-start gap-4">
-                                            <div className="w-10 h-10 rounded-xl bg-teal/5 flex items-center justify-center shrink-0">
-                                                <Icon size={18} className="text-teal" />
-                                            </div>
+                                            {href ? (
+                                                <a href={href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-teal/5 flex items-center justify-center shrink-0 hover:bg-teal/15 transition-colors" aria-label={`${label}: ${value}`}>
+                                                    <Icon size={18} className="text-teal" />
+                                                </a>
+                                            ) : (
+                                                <div className="w-10 h-10 rounded-xl bg-teal/5 flex items-center justify-center shrink-0">
+                                                    <Icon size={18} className="text-teal" />
+                                                </div>
+                                            )}
                                             <div>
                                                 <div className="text-gray-400 text-xs mb-0.5 font-bold uppercase tracking-widest">{label}</div>
-                                                <div className="text-gray-900 font-bold">{value}</div>
+                                                {href ? (
+                                                    <a href={href} target="_blank" rel="noopener noreferrer" className="text-gray-900 font-bold hover:text-teal transition-colors">{value}</a>
+                                                ) : (
+                                                    <div className="text-gray-900 font-bold">{value}</div>
+                                                )}
                                             </div>
                                         </div>
                                     ))}
